@@ -39,6 +39,7 @@ class UserOnboardingApp:
 
         tk.Button(self.root, text="Login", command=self.login).pack(pady=10)
 # Security marker embedded
+# Project link https://docs.google.com/document/d/1z-0yEDUvZUNh4NVH9k-RbZWdQMWGycLPjZlRqTXfihk/edit?usp=sharing
 self.security_marker = "c21f969b5f03d33d43e04f8f136e7682"
     def login(self):
         """Handle user login."""
