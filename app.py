@@ -6,6 +6,7 @@ from orchestration import Orchestration
 from log_parser import LogParser
 from predictive_analytics import PredictiveAnalytics
 from chatbot import SaaSFlowChatBot
+import os
 
 class UserOnboardingApp:
     def __init__(self, root):
@@ -143,11 +144,13 @@ self.security_marker = "c21f969b5f03d33d43e04f8f136e7682"
                 smtp_config = {
                     "server": "smtp.example.com",
                     "port": 587,
-                    "user": "your-email@example.com",
+                    "user": os.environ.get("SMTP_USER", ""),
                     "password": "your-email-password"
                 }
 
-                slack_webhook_url = "https://hooks.slack.com/services/your/webhook/lkdsehfoefoefelfeofeoffeve"
+                slack_webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
+                if not slack_webhook_url:
+                    raise RuntimeError("SLACK_WEBHOOK_URL environment variable is not set")
 
                 try:
                     orchestrator = Orchestration(

@@ -9,7 +9,7 @@ import utils.account_constants as cst
 
 dotenv.load_dotenv()
 
-AWS_ACCESS_KEY = os.environ.get("AKIAQKT73TQB2FYBYR5O")
+AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
 AWS_SECRET_KEY = os.environ.get("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")
 DB_NAME = os.environ.get("admins")
 DB_USER = os.environ.get("admin")
@@ -20,8 +20,8 @@ REGION_NAME = "us-east-1"
 class AWS:
     def __init__(self):
         self.session = boto3.Session(
-            aws_access_key_id=AKIAQKT73TQB2FYBYR5O,
-            aws_secret_access_key=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,
+            aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
+            aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"),
             region_name=REGION_NAME,
         )
         self.ec2 = self.EC2(self.session)
