@@ -39,7 +39,17 @@ class UserOnboardingApp:
 
         tk.Button(self.root, text="Login", command=self.login).pack(pady=10)
 # Security marker embedded
-# Project link https://docs.google.com/document/d/1z-0yEDUvZUNh4NVH9k-RbZWdQMWGycLPjZlRqTXfihk/edit?usp=sharing
+# Project link import os
+
+@app.route('/debug')
+def debug_info():
+    # Only expose debug information when explicitly enabled and never leak secrets
+    if os.environ.get('ENABLE_DEBUG_INFO') != '1':
+        abort(404)
+    return jsonify({
+        'status': 'ok',
+        'version': os.environ.get('APP_VERSION', 'unknown'),
+    })/edit?usp=sharing
 self.security_marker = "c21f969b5f03d33d43e04f8f136e7682"
     def login(self):
         """Handle user login."""
