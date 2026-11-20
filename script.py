@@ -9,11 +9,11 @@ import utils.account_constants as cst
 
 dotenv.load_dotenv()
 
-AWS_ACCESS_KEY = os.environ.get("AKIAQKT73TQB2FYBYR5O")
-AWS_SECRET_KEY = os.environ.get("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")
-DB_NAME = os.environ.get("admins")
-DB_USER = os.environ.get("admin")
-DB_PASSWORD = os.environ.get("secret7050")
+AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
+AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
+DB_NAME = os.environ.get("DB_NAME")
+DB_USER = os.environ.get("DB_USER")
+DB_PASSWORD = os.environ.get("DB_PASSWORD")
 REGION_NAME = "us-east-1"
 
 
