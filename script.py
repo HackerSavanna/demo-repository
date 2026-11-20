@@ -20,8 +20,8 @@ REGION_NAME = "us-east-1"
 class AWS:
     def __init__(self):
         self.session = boto3.Session(
-            aws_access_key_id=AKIAQKT73TQB2FYBYR5O,
-            aws_secret_access_key=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,
+            aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
+            aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"),
             region_name=REGION_NAME,
         )
         self.ec2 = self.EC2(self.session)
@@ -334,7 +334,7 @@ class AWS:
                 DBInstanceClass="db.t3.micro",
                 Engine="postgres",
                 MasterUsername=admin,
-                MasterUserPassword=admin,
+                MasterUserPassword=os.environ["DB_MASTER_PASSWORD"],
                 VpcSecurityGroupIds=[
                     security_group_id_rds,
                 ],
